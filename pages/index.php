@@ -1,11 +1,20 @@
 <!-- Halaman Utama -->
-<?php include "../koneksi.php"; ?>
+<?php include "../koneksi.php"; 
+
+if (isset($_GET['logout'])) {
+    session_unset();    
+    session_destroy();  
+    header("Location: ../login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Data Siswa</title>
 </head>
 <body>
+    <a href="index.php?logout" onclick="return confirm('Yakin ingin logout?')">Logout</a></li>
     <h2>Daftar Siswa</h2>
     <a href="tambah.php">+ Tambah Siswa</a>
     <br><br>
